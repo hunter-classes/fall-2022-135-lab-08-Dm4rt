@@ -130,8 +130,10 @@ void pixelate(std::string fileName){
   int out[MAX_H][MAX_W];
   for(int row = 0; row<h;row++){
     for(int col = 0; col<w;col++){
-      int a=outsmall[row/2][col/2]+abs(img[row][col]);
-      outsmall[row/2][col/2]=a;
+      int a=outsmall[row/2][col/2];
+      int b=abs(img[row][col]);
+      int c=a+b;
+      outsmall[row/2][col/2]=c;
     }
   }
 
@@ -149,7 +151,9 @@ void pixelate(std::string fileName){
 	out[row][col]=outsmall[row/2][col/2];
       }
       else{
-	out[row][col]=0;
+	int newvalue= outsmall[row/2][col/2];
+	int simple = abs(newvalue%256);
+	out[row][col]=simple;
       }
     }
   }
