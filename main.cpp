@@ -5,4 +5,5 @@
 int main(){
   invert("image1.pgm");
   invertHalf("image2.pgm");
+  box("image1.pgm");
 }
