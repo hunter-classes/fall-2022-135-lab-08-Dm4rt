@@ -7,4 +7,5 @@ int main(){
   invertHalf("image2.pgm");
   box("image1.pgm");
   frame("image2.pgm");
+  scale("cat.pgm");
 }

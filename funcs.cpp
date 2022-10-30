@@ -86,3 +86,19 @@ void frame(std::string fileName){
   writeImage("taskD.pgm",out,h,w);
   
 }
+
+void scale(std::string fileName){
+  int img[MAX_H][MAX_W];
+  int h, w;
+  readImage(fileName, img, h,w);
+
+  int newh=h*2;
+  int neww=w*2;
+  int out[MAX_H][MAX_W];
+  for(int row = 0; row <newh; row++){
+    for(int col = 0; col < neww; col++){
+      out[row][col] = img[row/2][col/2];
+    }
+  }
+  writeImage("taskE.pgm",out,h*2,w*2);
+}
