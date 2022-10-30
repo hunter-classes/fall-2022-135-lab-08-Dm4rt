@@ -8,5 +8,5 @@ int main(){
   box("image1.pgm");
   frame("image2.pgm");
   scale("cat.pgm");
-  pixelate("cat.pgm");
+  pixelate("image1.pgm");
 }
