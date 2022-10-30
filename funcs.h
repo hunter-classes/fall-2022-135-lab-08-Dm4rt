@@ -6,3 +6,5 @@ void invertHalf(std::string fileName);
 void box(std::string fileName);
 void frame(std::string fileName);
 void scale(std::string fileName);
+void scaleF(std::string fileName);
+void pixelate(std::string fileName);

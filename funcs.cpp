@@ -102,3 +102,46 @@ void scale(std::string fileName){
   }
   writeImage("taskE.pgm",out,h*2,w*2);
 }
+void scaleF(std::string fileName){
+  int img[MAX_H][MAX_W];
+  int h, w;
+  readImage(fileName, img, h,w);
+
+  int newh=h*2;
+  int neww=w*2;
+  int out[MAX_H][MAX_W];
+  for(int row = 0; row <newh; row++){
+    for(int col = 0; col < neww; col++){
+      out[row][col] = img[row/2][col/2];
+    }
+  }
+  writeImage("taskF.pgm",out,h*2,w*2);
+}
+
+void pixelate(std::string fileName){
+  int img[MAX_H][MAX_W];
+  int h, w;
+  readImage(fileName, img, h,w);
+
+  int newh=h/2;
+  int neww=w/2;
+  int outsmall[newh][neww];
+  int out[MAX_H][MAX_W];
+  for(int row = 0; row < h; row++){
+    for(int col = 0; col < w; col++){
+      outsmall[row/2][col/2] += img[row][col];
+    }
+  }
+  for(int row = 0; row < newh; row++){
+    for(int col = 0; col < neww; col++){
+      outsmall[row][col]=outsmall[row][col]/4;
+    }
+  }
+  for(int row=0;row<h;row++){
+    for(int col=0;col<w;col++){
+      out[row][col]=outsmall[row/2][col/2];
+    }
+  }
+  writeImage("taskF.pgm",out,h/2,w/2);
+  scaleF("taskF.pgm");
+}
